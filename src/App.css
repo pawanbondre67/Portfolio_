@@ -1,0 +1,313 @@
+
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --hue: 0;
+  --sat: 0%;
+  --title-color: hsl(var(--hue), var(--sat), 20%);
+  --title-color-dark: hsl(var(--hue), var(--sat), 0%);
+  --text-color: hsl(var(--hue), var(--sat), 46%);
+  --body-color: hsl(var(--hue), var(--sat), 98%);
+  --container-color: #fff;
+
+   /* [dark-theme = "dark"]{
+    --title-color: hsl(var(--hue), var(--sat), 100%);
+    --title-color-dark: hsl(var(--hue), var(--sat), 0%);
+    --text-color: hsl(var(--hue), var(--sat), 70%);
+    --body-color: hsl(var(--hue), var(--sat), 10%);
+    --container-color: hsl(var(--hue), var(--sat), 0%);
+   } */
+
+
+  /*========== Font and typography ==========*/
+  --body-font: "Poppins", sans-serif;
+
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --big-font-size: 3.3rem;
+ 
+  --h1-font-size: 2.25rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.813rem;
+  --tiny-font-size: 0.625rem;
+
+  /*========== Font weight ==========*/
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== Margenes Bottom ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --mb-0-25: 0.25rem;
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+  --mb-3: 3rem;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+/* Responsive typography */
+@media screen and (max-width: 992px) {
+  :root {
+    --big-font-size: 2.75rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+.dark-mode {
+  background-color: #0A081F;
+  color: azure;
+}
+
+.dark-mode .header,
+.dark-mode .footer,
+.dark-mode .nav__menu {
+  background-color: #171717;
+}
+
+.dark-mode .footer .footer__container .footer__title,
+.dark-mode .footer .footer__container a,
+.dark-mode .home__title,
+.dark-mode .home__subtitle,
+.dark-mode .home__social a,
+.dark-mode .home__scroll a span,
+.dark-mode .home__scroll a i{
+  color: #dddddd;
+}
+
+.dark-mode .header .nav .nav__logo,
+.dark-mode .header .nav .nav__list .nav__item .nav__link {
+  color: #fff;
+}
+
+.dark-mode .about__box,
+.dark-mode .services__modal-content {
+  background-color: #2b2b2b;
+}
+
+.dark-mode .about__box .about__title,
+.dark-mode .about__box .about__subtitle,
+.dark-mode .about__box .bx,
+.dark-mode .services__modal-title,
+.dark-mode .section__title {
+  color: #fff;
+}
+
+.dark-mode .skills__content {
+  background-color: #2b2b2b;
+  color: #dddddd;
+}
+
+.dark-mode .skills__content .skills__title,
+.dark-mode .skills__content .bx {
+  color: #dddddd;
+}
+
+.dark-mode .skills__content .skills__name {
+  color: #fff;
+}
+
+.dark-mode .skills {
+  color: #fff;
+}
+
+.dark-mode .services__content {
+  background-color: #2b2b2b;
+}
+
+.dark-mode .services__content .uil,
+.dark-mode .services__content .services__title,
+.dark-mode .services__content span {
+  color: #dddddd;
+}
+
+.dark-mode .work__card,
+.dark-mode .contact__card,
+.dark-mode .contact__content .contact__form-tag {
+  background-color: #2b2b2b;
+}
+
+.dark-mode .work__title,
+.dark-mode .work__button,
+.dark-mode .contact__card .bx,
+.dark-mode .contact__card .contact__card-title,
+.dark-mode .contact__content .contact__form-tag
+{
+  color: #dddddd;
+}
+
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+  padding: 5rem 0 0 0;
+  height: max-content;
+  /* margin-bottom: -4rem; */
+  /* background-color: lightcoral; */
+}
+
+.section__title {
+  font-size: var(--h1-font-size);
+  color: var(--title-color);
+}
+
+.section__subtitle {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: 4rem;
+}
+
+.section__title,
+.section__subtitle {
+  text-align: center;
+}
+
+/*=============== LAYOUT ===============*/
+.container {
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/*=============== BUTTONS ===============*/
+.button {
+  display: inline-block;
+  /* height: 3rem; */
+  background-color: var(--title-color);
+  color: var(--container-color);
+  padding: 1.25rem 2rem;
+  border-radius: 1rem;
+  font-weight: var(--font-medium);
+}
+
+.button:hover {
+  background-color: var(--title-color-dark);
+}
+
+.button__icon {
+  margin-left: var(--mb-0-5);
+}
+
+.button--flex {
+  display: inline-flex;
+  align-items: center;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (max-width: 992px) {
+  .container {
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+  }
+  .button {
+    padding: 1rem 1.75rem;
+  }
+  
+
+}
+ 
+/* For medium devices */
+@media screen and (max-width: 768px) {
+  body{
+    margin: 0 0 var(--header-height) 0;
+  }
+  .about__section{
+    padding: 2.5rem 0  3rem;
+  }
+  .section__title{
+    margin-bottom: var(--mb-1);
+    margin-top: var(--mb-1);
+  }
+
+
+  
+}
+
+  /* for small devices  */
+  @media screen and (max-width: 350px) {
+
+    :root{
+      --big-font-size: 2.3rem;
+    }
+    .container {
+      margin-left: var(--mb-1);
+      margin-right: var(--mb-1);
+    }
+    
+  }
+

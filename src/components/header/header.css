@@ -1,0 +1,307 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: var(--body-color);
+  /* background-color: var(--container-color); */
+}
+
+.nav {
+  height: calc(var(--header-height) + 1.5rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.logo {
+  font-size: 25px;
+  margin-top: 10px;
+}
+.logo::first-letter{
+  color: coral;
+  font-size: 35px;
+}
+
+.nav__logo,
+.nav__toggle {
+  color: var(--title-color);
+  /* font-size: 1.25rem; */
+  font-weight: var(--font-medium);
+}
+
+.nav__list {
+  display: flex;
+  column-gap: 2rem;
+}
+
+.nav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--small-font-size);
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  transition: 0.3s;
+}
+
+.nav__icon,
+.nav__toggle,
+.nav__close {
+  display: none;
+}
+
+.active-link,
+.nav__link:hover {
+  color: var(--title-color-dark);
+}
+
+.nav::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  /* left: 100px; */
+  right: 1px;
+  width: 100%;
+  height: 0.125rem;
+  box-shadow: inset 0 0 0 2000px rgba(26, 24, 24, 0.1);
+  /* border-radius: 0.25rem; */
+  transition: 0.3s;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For medium devices */
+@media screen and (max-width: 768px) {
+  .header {
+    /* top: initial;
+    bottom: 0; */
+    top: 0;
+  }
+
+  .nav {
+    height: var(--header-height);
+  }
+
+  .nav__menu {
+    /* position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--body-color);
+    padding: 2rem 1.5rem 4rem;
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 1.5rem 1.5rem 0 0;
+    transition: 0.3s; */
+
+    position: fixed;
+    top: -100%;
+    left: 0;
+    /* right: -100%; */
+    z-index: 1;
+    width: 100%;
+    background-color: var(--body-color);
+    padding: 2rem 1.5rem 2rem;
+    box-shadow: -1px 0px 30px rgba(0, 0, 0, 0.15);
+    border-radius:  0 0 1.5rem 1.5rem;
+    transition: 0.3s; 
+    /* background-color: brown; */
+  }
+
+   /* show menu  */
+   .show-menu {
+    /* bottom: 10px; */
+     top: 0;
+    
+   }
+
+  .nav__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .nav__icon {
+    font-size: 1.25rem;
+  }
+
+  .nav__close {
+    /* position: absolute;
+    right: 1.5rem;
+    bottom: 0.5rem;
+    color: var(--title-color);
+    font-size: 1.5rem;
+    cursor: pointer; */
+    position: absolute;
+    right: 0.8rem;
+    top: 0.2rem;
+    color: var(--title-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .nav__close:hover {
+    color: var(--title-color-dark);
+  }
+
+  .nav__toggle{
+    font-size: 1.1rem;
+    cursor: pointer;
+  } 
+
+
+
+  .nav__icon,
+  .nav__close,
+  .nav__toggle {
+    display: block;
+    /* font-size: 1.5rem; */
+  }
+}
+
+
+/* For small devices */
+@media screen and (max-width: 360px) {
+  .nav__menu{
+    /* padding: 2rem .25rem  4rem; */
+    padding : 0.8rem 0.25rem 1.5rem;
+    background-color: var(--body-color);
+    z-index: 35;
+    /* top: 3rem; */
+    /* left: 8rem; */
+  }
+  .nav__list{
+    column-gap: 10px;
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+span {
+  font-size: 20px;
+}
+
+.switch-checkbox {
+  padding: 10px;
+}
+
+.containerr {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 14px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* Rounded sliders */
+.slider.round {
+  position: absolute;
+  padding: 12px;
+  border-radius: 34px;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+}
+
+input:checked + .slider {
+  background-color: #19a2c1;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+
+/* breakpoints */
+/* for large */
+@media screen and (max-width: 992px) {
+  .containerr {
+    position: absolute;
+    right: 500px;
+  }
+}
+/* for medium */
+
+@media screen and (max-width: 768px) {
+  .containerr {
+    position: absolute;
+    right: 650px;
+    top: 180px;
+    left: 50px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .containerr {
+    position: absolute;
+    right: 300px;
+    top: 180px;
+    left: 20px;
+  }
+}
+
+/* for small devices */
+@media screen and (max-width: 350px) {
+  .containerr {
+    position: absolute;
+    right: 200px;
+    top: 180px;
+    left: 20px;
+  }
+}
